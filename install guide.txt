@@ -1,0 +1,6 @@
+1. nainstallovat laravel 11 https://laravel.com/docs/11.x/installation
+rozbalit resources.zip do novo vytvoreneho projektu
+nainstalovat addony a sucasti podla requirements v configu ako napr npm, breeze, php, artisan ... 
+skontrolovat config a linknut databazu
+pustit databazove migracie prikazom php artisan migrate
+skontrolovat config znova
