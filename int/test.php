@@ -1,30 +1,32 @@
 <?php
 //Default hodnoty prepinacov
-$directoryPath = "."; // default = terajsi priecinok
-$recursive = false;
-$intOnly = false;
-$parseOnly = false;
-$jexamxml;
+$directoryPath = ".";  // Default directory for tests is the current directory
+$recursive = false;    // Default is not to search subdirectories
+$intOnly = false;      // Default is not to run only the interpreter tests
+$parseOnly = false;    // Default is not to run only the parser tests
+$jexamxml;             // This will store the path for the JEXAMXML tool
 
-$parsephp = "parse.php";
-$interpretpy = "interpret.py";
-$jexamxml = "/pub/courses/ipp/jexamxml/jexamxml.jar";
-$pathArgs = array("--directory", "--parse-script", "--int-script", "--jexamxml");
-$boolArgs = array("--recursive", "--parse-only", "--int-only", "--help");
-$testingFiles = array();
-$parsedArgs = array();
+// Default script paths
+$parsephp = "parse.php"; // Default parser script
+$interpretpy = "interpret.py"; // Default interpreter script
+$jexamxml = "/pub/courses/ipp/jexamxml/jexamxml.jar"; // Default path to JEXAMXML
+$pathArgs = array("--directory", "--parse-script", "--int-script", "--jexamxml"); // Allowed arguments for file paths
+$boolArgs = array("--recursive", "--parse-only", "--int-only", "--help"); // Boolean arguments like recursive and help
+$testingFiles = array(); // Array to hold the files to be tested
+$parsedArgs = array(); // Array to hold the parsed arguments
 //Pocitadla vysledkov testov
 $success = 0;
 $failed = 0;
-
+// Parsing command line arguments
 foreach ($argv as $arg) {
     if (strpos($arg, "=")) {
+         // If argument has a '=', split the argument into key-value
         $divided_arg =  explode("=", $arg, 2);
         if (in_array($divided_arg[0], $pathArgs)) {
             array_push($parsedArgs, $divided_arg);
         } else {
 
-            exit(10);
+            exit(10); //argument is invalid
         }
     } else {
 
@@ -50,7 +52,7 @@ foreach ($parsedArgs as $arg) {
 
             if (file_exists($arg[1])) {
 
-                $directoryPath = $arg[1];
+                $directoryPath = $arg[1]; // Set directory path if valid
             } else {
 
                 exit(11);

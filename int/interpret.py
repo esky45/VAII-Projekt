@@ -5,21 +5,13 @@ import re
 
 
 # instrukcie
-# LISTS OF INSTRUCTIONS BASED ON HOW MANY ARGUMENTS THEY TAKE
-# EXAMPLE: "ADD" NEEDS 3 ARGUMENTS, "NOT" NEEDS 2, ETC.
 i3ops = ["ADD","SUB","MUL","IDIV","LT","GT","EQ","AND","OR","STRI2INT","CONCAT","GETCHAR","SETCHAR","JUMPIFEQ","JUMPIFNEQ"]
 i2ops = ["NOT","MOVE","INT2CHAR","READ","STRLEN","TYPE"]
 i1op = ["DEFVAR","CALL","PUSHS","POPS","WRITE","LABEL","JUMP","EXIT","DPRINT"]
 i0op = ["CREATEFRAME","PUSHFRAME","POPFRAME","RETURN","BREAK"]
 
 
-# ---------------------------
-# PROGRAM STATE
-# ---------------------------
-# THESE ARE LIKE MEMORY AREAS FOR THE PROGRAM:
-# - TF: TEMPORARY FRAME (CURRENT WORKSPACE)
-# - LF: LOCAL FRAME STACK (SAVED WORKSPACES)
-# - GF: GLOBAL FRAME (SHARED MEMORY)
+
 #Frames
 TF= None
 LF= None
@@ -27,8 +19,8 @@ GF= {}
 
 
 dataStack = []
-inCode = None # FOR READING INPUT FILES
-inContent = None # ACTUAL CONTENT OF INPUT FILES
+inCode = None
+inContent = None
 
 #kontrola argumentov
 def parseArgs():
@@ -42,7 +34,7 @@ def parseArgs():
         args = argParser.parse_args()  
 
 
-           # ERROR IF TOO MANY INPUTS
+
         if (args.input is not None):
             if (len(args.input) > 1):
                 argParser.error(77)
@@ -1362,9 +1354,9 @@ def main():
             for line in sys.stdin:
                 sourceCode += line 
         #volanie funkcii      
-        lexxed = lex(sourceCode)  # STEP 1: READ XML
-        syntaxed = syntax(lexxed) # STEP 2: VALIDATE STRUCTURE
-        interpret(syntaxed)  # STEP 3: EXECUTE INSTRUCTIONS
+        lexxed = lex(sourceCode)
+        syntaxed = syntax(lexxed)
+        interpret(syntaxed)
         exit(0)
 
 main()
