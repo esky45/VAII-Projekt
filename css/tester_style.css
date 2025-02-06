@@ -1,0 +1,44 @@
+/* resources/css/SH_style.css */
+
+/* Terminal Output Styling */
+#terminal-output {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 120px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: "Courier New", monospace;
+    white-space: pre-wrap;
+    font-size: 12px;
+}
+
+/* Compact File Management Section */
+.form-control-sm {
+    font-size: 12px;
+}
+
+.btn-sm {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+/* Margin adjustments */
+.container {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 10px;
+}
+
+.mb-3 {
+    margin-bottom: 10px;
+}
+
+/* Adjusted margin for buttons in file management section */
+.btn-success {
+    font-size: 12px;
+    padding: 5px 10px;
+}

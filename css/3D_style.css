@@ -1,0 +1,53 @@
+    /* 3d map style */
+        body { 
+          margin: 0; 
+          overflow: hidden;
+          font-family: 'Samsung Sans', Arial, sans-serif;
+        }
+        #ui {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 100;
+          background: rgba(0,0,0,0.8);
+          padding: 20px;
+          border-radius: 15px;
+          color: white;
+          width: 300px;
+        }
+        .device-panel {
+          margin-top: 20px;
+        }
+        .room-label {
+          position: absolute;
+          color: white;
+          font-size: 14px;
+          background: rgba(0,0,0,0.5);
+          padding: 5px 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          user-select: none;
+          white-space: nowrap;
+        }
+        .draggable {
+          cursor: move;
+        }
+        .highlight {
+          background: #FFD700;
+        }
+        #device-placement-toggle {
+          margin-top: 20px;
+          background: #00FF00;
+          color: white;
+          border: none;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+        #device-placement-toggle.active {
+          background: #4CAF50;
+        }
+  
+
